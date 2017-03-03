@@ -28,6 +28,7 @@ if __name__ == '__main__':
     np.savetxt(open(lab_filename, 'w'), tmp, fmt='%f', delimiter=' ')
 
     print('Converting Lab values to RGB-XYZ through %s' % icc_profile_filename)
+    # See: http://www.russellcottrell.com/photo/ArgyllColorPatches.htm
     command = 'icclu -v0 -fb -ir -pl -s100 %s < %s | icclu -v1 -ff -ia -pX -s100 %s > %s' % (icc_profile_filename,
                                                                                              lab_filename,
                                                                                              icc_profile_filename,
